@@ -17,6 +17,7 @@ $header-font-family: {{ site.data.typography.heading_font_family | default: site
 @import "mixins";
 @import "vendor/susy/susy";
 
+@import "web-fonts";
 @import "reset";
 @import "base";
 

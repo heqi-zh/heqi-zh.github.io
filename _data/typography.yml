@@ -1,5 +1,5 @@
 # Edit this file to adjust the homepage typography, then refresh the preview.
-# Fonts must be installed on the visitor's device; fallbacks are tried in order.
+# Linux Biolinum O and Linux Libertine O are bundled as web fonts for all devices.
 # Alternatives: 'Arial, Helvetica, sans-serif' or 'Georgia, "Times New Roman", serif'.
 font_family: '"Linux Biolinum O", "Trebuchet MS", Helvetica, sans-serif'
 heading_font_family: '"Linux Libertine O", Georgia, "Times New Roman", serif'
