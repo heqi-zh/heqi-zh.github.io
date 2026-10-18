@@ -29,13 +29,15 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 <p class="publication-note"><sup>†</sup> Corresponding author.</p>
 
 <div class="publication-entry">
-  <div class="entry-date"><time datetime="2026-06">June 2026</time></div>
   <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
     <img src="images/far-rio-first-page.png" alt="First page of the FAR-RIO paper" width="928" height="1200" loading="lazy">
   </a>
   <div class="publication-entry__details" markdown="1">
 
-**[FAR-RIO: A Fast and Robust Radar-Inertial Odometry With Isotropic Uncertainty Model and Dual-Observation Update Pipeline](https://ieeexplore.ieee.org/abstract/document/11474877/)**
+<div class="entry-header">
+  <div class="entry-date"><time datetime="2026-06">June 2026</time></div>
+  <h3 class="entry-title"><a href="https://ieeexplore.ieee.org/abstract/document/11474877/">FAR-RIO: A Fast and Robust Radar-Inertial Odometry With Isotropic Uncertainty Model and Dual-Observation Update Pipeline</a></h3>
+</div>
 
 **Hang Zhen**, Zhi Gao<sup title="Corresponding author">†</sup>, Ronghe Jin, Xinyu Guo, Feng Lin<br>
 *IEEE Robotics and Automation Letters (RA-L)*, 11(6): 6975–6982.<br>
@@ -45,13 +47,15 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 </div>
 
 <div class="publication-entry">
-  <div class="entry-date"><time datetime="2026-03">March 2026</time></div>
   <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11373843" aria-label="Read the EasyColor paper on IEEE Xplore">
     <img src="images/easycolor-preview.gif" alt="EasyColor point cloud colorization and cross-domain matching demonstration" width="480" height="270" loading="lazy">
   </a>
   <div class="publication-entry__details" markdown="1">
 
-**[EasyColor: Reflectivity Assisted Dense Point Cloud RGB Colorizing Without Accurate Time Synchronization and Extrinsic Calibration](https://ieeexplore.ieee.org/abstract/document/11373843)**
+<div class="entry-header">
+  <div class="entry-date"><time datetime="2026-03">March 2026</time></div>
+  <h3 class="entry-title"><a href="https://ieeexplore.ieee.org/abstract/document/11373843">EasyColor: Reflectivity Assisted Dense Point Cloud RGB Colorizing Without Accurate Time Synchronization and Extrinsic Calibration</a></h3>
+</div>
 
 Zhiyu Zhou, Zhi Gao<sup title="Corresponding author">†</sup>, Yong Li, **Hang Zhen**<br>
 *IEEE Robotics and Automation Letters (RA-L)*, 11(3): 3716–3723.<br>
@@ -95,13 +99,16 @@ School of Remote Sensing and Information Engineering
 # Experience
 
 <div class="experience-entry">
-  <div class="entry-date"><time datetime="2025-11">Nov. 2025</time> – <time datetime="2026-02">Feb. 2026</time></div>
   <a class="experience-entry__logo" href="https://www.agibot.com/" aria-label="AGIBOT official website">
     <img src="images/agibot-logo.png" alt="AGIBOT logo" width="243" height="58" loading="lazy">
   </a>
   <div class="experience-entry__details" markdown="1">
 
-**AGIBOT (智元机器人)**<br>
+<div class="entry-header">
+  <div class="entry-date"><time datetime="2025-11">Nov. 2025</time> – <time datetime="2026-02">Feb. 2026</time></div>
+  <h3 class="entry-title">AGIBOT (智元机器人)</h3>
+</div>
+
 SLAM Algorithm Engineer Intern
 
   </div>
