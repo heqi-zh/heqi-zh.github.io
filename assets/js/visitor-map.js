@@ -179,15 +179,14 @@
       const response = await fetch("assets/data/visitor-locations.json", {cache: "no-store"});
       if (!response.ok) throw new Error("Visitor snapshot could not be loaded");
       const snapshot = await response.json();
-      if (snapshot.source !== "goatcounter") throw new Error("Unexpected visitor source");
+      if (!Array.isArray(snapshot.locations)) throw new Error("Invalid geographic snapshot");
       locations = snapshot.locations.filter(point =>
         Number.isFinite(point.latitude) && Number.isFinite(point.longitude) &&
         Math.abs(point.latitude) <= 90 && Math.abs(point.longitude) <= 180 &&
         typeof point.label === "string");
       drawLocations(locations);
-      root.dataset.state = snapshot.status === "pending" ? "pending"
-        : locations.length ? "ready" : "empty";
-      root.dataset.updatedAt = snapshot.updatedAt || "";
+      root.dataset.state = locations.length ? "ready" : "empty";
+      root.dataset.updatedAt = new Date().toISOString();
       summary.textContent = "";
       summary.hidden = true;
     } catch (error) {
@@ -202,7 +201,7 @@
   async function startVisitors() {
     recordVisit();
     await refreshVisitors();
-    // Collection is live. The public country-level snapshot is synced hourly.
+    // Collection is live. The public geography-only snapshot is synced hourly.
     setInterval(() => {
       if (!document.hidden) refreshVisitors();
     }, 300000);

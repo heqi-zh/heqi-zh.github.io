@@ -1,14 +1,10 @@
 {
-  "source": "goatcounter",
-  "status": "ready",
-  "updatedAt": "2026-10-18T12:55:38.910793Z",
   "locations": [
     {
       "country": "JP",
       "latitude": 36.143,
       "longitude": 138.442,
-      "count": 1,
-      "label": "1 visitor from Japan (country-level location)"
+      "label": "Japan"
     }
   ]
 }
