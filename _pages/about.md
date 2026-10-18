@@ -117,6 +117,15 @@ SLAM Algorithm Engineer Intern
   </div>
 </div>
 
+<span class="anchor" id="academic-service"></span>
+
+# Academic Service
+
+**Journal Reviewer**
+
+- *Virtual Reality*
+- *IEEE Transactions on Vehicular Technology (TVT)*
+
 <span class="anchor" id="contact"></span>
 
 # Contact
