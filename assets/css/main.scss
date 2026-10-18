@@ -58,6 +58,10 @@ html, body, .masthead, .greedy-nav {
     border-bottom-color: var(--border-color);
 }
 
+.sidebar .author__name, .masthead__inner-wrap {
+    font-family: $header-font-family;
+}
+
 .page__content h1, .sidebar .author__name {
     color: var(--heading-color);
 }
@@ -168,6 +172,7 @@ body {
 
 .page__content .entry-title {
     margin: 0;
+    font-family: $global-font-family;
     font-size: 1em;
     line-height: 1.4;
 }
