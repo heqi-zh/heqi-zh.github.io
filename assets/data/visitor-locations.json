@@ -65,6 +65,13 @@
       "latitude": 39.538,
       "longitude": -97.483,
       "label": "United States of America"
+    },
+    {
+      "country": "US",
+      "region": "US-CA",
+      "latitude": 36.75,
+      "longitude": -119.591,
+      "label": "California, United States of America"
     }
   ]
 }
