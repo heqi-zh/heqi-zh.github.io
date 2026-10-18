@@ -9,12 +9,21 @@
   const namespace = "http://www.w3.org/2000/svg";
   let requestNumber = 0;
 
-  // Asia/Pacific-centred Mercator; matches scripts/build-visitor-map.py.
+  // Robinson projection; matches scripts/build-visitor-map.py.
+  const robinsonX = [1, .9986, .9954, .99, .9822, .973, .96, .9427, .9216,
+    .8962, .8679, .835, .7986, .7597, .7186, .6732, .6213, .5722, .5322];
+  const robinsonY = [0, .062, .124, .186, .248, .31, .372, .434, .4958,
+    .5571, .6176, .6769, .7346, .7903, .8435, .8936, .9394, .9761, 1];
+
   function project(latitude, longitude) {
     const relativeLongitude = ((longitude - 150 + 540) % 360) - 180;
-    const latitudeRadians = Math.max(-60, Math.min(85, latitude)) * Math.PI / 180;
-    return [500 + 150 * relativeLongitude * Math.PI / 180,
-      380 - 150 * Math.log(Math.tan(Math.PI / 4 + latitudeRadians / 2))];
+    const interval = Math.min(Math.abs(latitude), 90) / 5;
+    const index = Math.min(Math.floor(interval), 17);
+    const fraction = interval - index;
+    const x = robinsonX[index] + fraction * (robinsonX[index + 1] - robinsonX[index]);
+    const y = robinsonY[index] + fraction * (robinsonY[index + 1] - robinsonY[index]);
+    return [500 + 180 * .8487 * relativeLongitude * Math.PI / 180 * x,
+      260 - 180 * 1.3523 * Math.sign(latitude) * y];
   }
 
   function requestData(path, parameters) {
