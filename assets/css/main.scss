@@ -178,7 +178,7 @@ body {
 
 .publication-entry {
     display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr);
     align-items: center;
     gap: 1.5rem;
     margin: 1.25rem 0;
@@ -261,7 +261,7 @@ body {
     }
 
     .publication-entry__preview {
-        width: 240px;
+        width: 200px;
         max-width: 100%;
     }
 }
