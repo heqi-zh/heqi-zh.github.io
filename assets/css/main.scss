@@ -191,11 +191,15 @@ body {
         background-color: #fff;
         box-shadow: 0 5px 16px rgba(179, 68, 114, 0.10);
 
-        img {
+        img, video {
             display: block;
             width: 100%;
             height: auto;
         }
+    }
+
+    &__preview--video::after {
+        display: none;
     }
 
     &__details {

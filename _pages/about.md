@@ -29,9 +29,12 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 <p class="publication-note"><sup>†</sup> Corresponding author.</p>
 
 <div class="publication-entry">
-  <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
-    <img src="images/far-rio-pipeline.png" alt="FAR-RIO pipeline showing radar-inertial state estimation and mapping" width="1800" height="525" loading="lazy">
-  </a>
+  <div class="publication-entry__preview publication-entry__preview--video">
+    <video width="960" height="540" autoplay loop muted playsinline controls preload="metadata" poster="images/far-rio-pipeline.png" aria-label="FAR-RIO demonstration, accelerated to three times the source video speed">
+      <source src="assets/videos/far-rio-demo.mp4" type="video/mp4">
+      <a href="assets/videos/far-rio-demo.mp4">Watch the FAR-RIO demo.</a>
+    </video>
+  </div>
   <div class="publication-entry__details" markdown="1">
 
 <div class="entry-header">
@@ -41,7 +44,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 **Hang Zhen**, Zhi Gao<sup title="Corresponding author">†</sup>, Ronghe Jin, Xinyu Guo, Feng Lin<br>
 *IEEE Robotics and Automation Letters (RA-L)*, 11(6): 6975–6982.<br>
-[Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO)
+[Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO) · [Video](assets/videos/far-rio-demo.mp4)
 
   </div>
 </div>
