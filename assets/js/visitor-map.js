@@ -7,7 +7,6 @@
   const summary = root.querySelector(".visitor-map__summary");
   const markers = root.querySelector(".visitor-map__markers");
   const namespace = "http://www.w3.org/2000/svg";
-  let requestNumber = 0;
 
   const canvas = root.querySelector(".visitor-map__canvas");
   const ocean = root.querySelector(".visitor-map__ocean");
@@ -27,9 +26,9 @@
     diagnostics.textContent = "正在检查访客统计…";
     root.insertBefore(diagnostics, canvas);
     setInterval(() => {
-      const tracking = {loading: "正在上报", sent: "请求已完成",
-        unavailable: "请求未成功（网络或拦截问题）", preview: "本地预览，不计数"};
-      const state = {loading: "正在读取", ready: "读取成功", empty: "暂无记录",
+      const tracking = {loading: "正在上报", loaded: "官方采集脚本已加载，到账请看后台",
+        unavailable: "采集脚本未能加载", skipped: "按账号设置忽略本次访问", preview: "本地预览，不计数"};
+      const state = {loading: "正在读取", ready: "读取成功", empty: "暂无记录", pending: "等待配置地域数据同步",
         unavailable: "读取失败"};
       const updated = root.dataset.updatedAt
         ? new Date(root.dataset.updatedAt).toLocaleTimeString("zh-CN") : "尚未完成";
@@ -115,64 +114,6 @@
     }
   }
 
-  function requestData(path, parameters) {
-    return new Promise((resolve, reject) => {
-      const callback = `hangZhenVisitorMap_${Date.now()}_${requestNumber++}`;
-      const script = document.createElement("script");
-      const url = new URL(path, "https://mapmyvisitors.com");
-      for (const [key, value] of Object.entries(parameters)) {
-        url.searchParams.set(key, String(value));
-      }
-      url.searchParams.set("callback", callback);
-
-      const cleanup = () => {
-        clearTimeout(timer);
-        script.remove();
-        delete window[callback];
-      };
-      const timer = setTimeout(() => {
-        cleanup();
-        reject(new Error("Visitor data request timed out"));
-      }, 12000);
-
-      window[callback] = (payload) => {
-        cleanup();
-        if (typeof payload === "string") resolve(payload);
-        else reject(new Error("Unexpected visitor data"));
-      };
-      script.onerror = () => {
-        cleanup();
-        reject(new Error("Visitor data could not be loaded"));
-      };
-      script.async = true;
-      script.src = url.href;
-      document.head.appendChild(script);
-    });
-  }
-
-  function readLocations(payload) {
-    if (/Domain was not found|ClustrMaps error/i.test(payload)) {
-      throw new Error("Visitor statistics are unavailable");
-    }
-
-    // The service returns its legacy rendering instructions as text. Read only
-    // the location fields; never evaluate those instructions or load its UI.
-    const text = payload.replace(/\/\*[\s\S]*?\*\//g, "");
-    const expression = /latLng:\s*\[\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\]\s*,\s*name:\s*("(?:\\.|[^"\\])*")/g;
-    const locations = new Map();
-    for (const match of text.matchAll(expression)) {
-      const latitude = Number(match[1]);
-      const longitude = Number(match[2]);
-      if (!Number.isFinite(latitude) || !Number.isFinite(longitude) ||
-          Math.abs(latitude) > 90 || Math.abs(longitude) > 180) continue;
-      const label = JSON.parse(match[3]);
-      locations.set(`${latitude.toFixed(4)},${longitude.toFixed(4)}`, {
-        latitude, longitude, label
-      });
-    }
-    return Array.from(locations.values());
-  }
-
   function drawLocations(points) {
     markers.replaceChildren();
     const center = projection.invert([320, 230]);
@@ -197,76 +138,58 @@
   }
 
   function recordVisit() {
-    // The image endpoint records visits; the JSONP endpoints only read them.
-    // Match the production origin so local previews do not pollute statistics.
     if (location.origin !== new URL(root.dataset.siteUrl).origin) {
       root.dataset.trackingState = "preview";
       return Promise.resolve();
     }
     root.dataset.trackingState = "loading";
     return new Promise((resolve) => {
-      const pixel = new Image(1, 1);
-      const url = new URL("/map.png", "https://mapmyvisitors.com");
-      url.searchParams.set("d", root.dataset.widgetId);
-      url.searchParams.set("cl", "ffffff");
-      url.searchParams.set("_", String(Date.now()));
-      const finish = (state) => {
+      const script = document.createElement("script");
+      script.setAttribute("data-goatcounter", root.dataset.goatcounterEndpoint);
+      script.setAttribute("data-goatcounter-settings", '{"no_events":true}');
+      // This is an unmodified copy of the official tracker. Hosting it with the
+      // page avoids a second script CDN; visits still go directly to GoatCounter.
+      script.src = "assets/js/goatcounter-count.js";
+      script.async = true;
+      const timer = setTimeout(() => {
+        root.dataset.trackingState = "unavailable";
+        resolve();
+      }, 12000);
+      script.onload = () => {
         clearTimeout(timer);
-        pixel.onload = pixel.onerror = null;
-        root.dataset.trackingState = state;
+        const ignored = window.goatcounter && window.goatcounter.filter();
+        root.dataset.trackingState = ignored ? "skipped" : "loaded";
         resolve();
       };
-      const timer = setTimeout(() => finish("unavailable"), 8000);
-      pixel.onload = () => finish("sent");
-      pixel.onerror = () => finish("unavailable");
-      pixel.alt = "";
-      pixel.hidden = true;
-      pixel.referrerPolicy = "strict-origin-when-cross-origin";
-      root.appendChild(pixel);
-      pixel.src = url.href;
+      script.onerror = () => {
+        clearTimeout(timer);
+        root.dataset.trackingState = "unavailable";
+        resolve();
+      };
+      document.head.appendChild(script);
     });
   }
 
-  let projectId;
-  let cachedLocations = [];
   let refreshing = false;
 
   async function refreshVisitors() {
     if (refreshing) return;
     refreshing = true;
     try {
-      if (!projectId) {
-        const metadata = await requestData("/widget_call_home.js", {
-          d: root.dataset.widgetId,
-          w: 720
-        });
-        const match = metadata.match(/["']project_id["']\s*:\s*(\d+)/);
-        if (!match) throw new Error("Visitor project could not be found");
-        projectId = match[1];
-        cachedLocations = readLocations(metadata);
-      }
-      const payload = await requestData("/ajax/map", {
-        id: projectId,
-        user: 0,
-        url: JSON.stringify(root.dataset.siteUrl),
-        initial: true,
-        initial_hit_id: 0,
-        last_hit_id: 0,
-        animate: false,
-        globalTotal: false,
-        mapType: "widget"
-      });
-      const latest = new Map();
-      for (const point of [...cachedLocations, ...readLocations(payload)]) {
-        latest.set(`${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}`, point);
-      }
-      locations = Array.from(latest.values());
+      const response = await fetch("assets/data/visitor-locations.json", {cache: "no-store"});
+      if (!response.ok) throw new Error("Visitor snapshot could not be loaded");
+      const snapshot = await response.json();
+      if (snapshot.source !== "goatcounter") throw new Error("Unexpected visitor source");
+      locations = snapshot.locations.filter(point =>
+        Number.isFinite(point.latitude) && Number.isFinite(point.longitude) &&
+        Math.abs(point.latitude) <= 90 && Math.abs(point.longitude) <= 180 &&
+        typeof point.label === "string");
       drawLocations(locations);
-      const recordingUnavailable = root.dataset.trackingState === "unavailable";
-      summary.textContent = recordingUnavailable ? "Visit recording is temporarily unavailable." : "";
-      summary.hidden = !recordingUnavailable;
-      root.dataset.state = locations.length ? "ready" : "empty";
-      root.dataset.updatedAt = new Date().toISOString();
+      root.dataset.state = snapshot.status === "pending" ? "pending"
+        : locations.length ? "ready" : "empty";
+      root.dataset.updatedAt = snapshot.updatedAt || "";
+      summary.textContent = "";
+      summary.hidden = true;
     } catch (error) {
       summary.textContent = "Visitor data is temporarily unavailable.";
       summary.hidden = false;
@@ -277,12 +200,12 @@
   }
 
   async function startVisitors() {
-    await recordVisit();
+    recordVisit();
     await refreshVisitors();
-    // Refresh the map without recording an extra page view for an open tab.
+    // Collection is live. The public country-level snapshot is synced hourly.
     setInterval(() => {
       if (!document.hidden) refreshVisitors();
-    }, 30000);
+    }, 300000);
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) refreshVisitors();
     });
