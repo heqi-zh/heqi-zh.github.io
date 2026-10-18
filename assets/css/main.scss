@@ -48,6 +48,7 @@ $header-font-family: {{ site.data.typography.heading_font_family | default: site
     --background-color: {{ site.data.theme.background_color | default: '#fff8fb' }};
     --intro-background: {{ site.data.theme.intro_background | default: '#ffedf4' }};
     --border-color: {{ site.data.theme.border_color | default: '#efc8d9' }};
+    --map-ocean-color: {{ site.data.theme.map_ocean_color | default: '#edf6fc' }};
     --map-land-color: {{ site.data.theme.map_land_color | default: '#e8bfd1' }};
     --map-marker-color: {{ site.data.theme.map_marker_color | default: '#b34472' }};
 }
@@ -379,6 +380,11 @@ body {
             box-shadow: none;
             -webkit-tap-highlight-color: transparent;
         }
+    }
+
+    &__ocean {
+        fill: var(--map-ocean-color);
+        stroke: none;
     }
 
     &__land {

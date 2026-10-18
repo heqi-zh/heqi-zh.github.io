@@ -10,6 +10,7 @@
   let requestNumber = 0;
 
   const canvas = root.querySelector(".visitor-map__canvas");
+  const ocean = root.querySelector(".visitor-map__ocean");
   const land = root.querySelector(".visitor-map__land");
   const projection = d3.geoOrthographic()
     .translate([320, 230]).scale(210).rotate([-110, -25]).clipAngle(90);
@@ -21,6 +22,7 @@
 
   function render() {
     frame = null;
+    ocean.setAttribute("d", path({type: "Sphere"}));
     for (const country of countries) {
       country.element.setAttribute("d", path(country.feature) || "");
     }
