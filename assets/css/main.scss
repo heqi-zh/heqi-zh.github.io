@@ -148,6 +148,10 @@ body {
 
 }
 
+.page__content .publication-note {
+    font-size: 0.85em;
+}
+
 .publication-entry {
     display: grid;
     grid-template-columns: 180px minmax(0, 1fr);

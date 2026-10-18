@@ -26,6 +26,8 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 # Publications
 
+<p class="publication-note"><sup>†</sup> Corresponding author.</p>
+
 <div class="publication-entry">
   <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
     <img src="images/far-rio-first-page.png" alt="First page of the FAR-RIO paper" width="928" height="1200" loading="lazy">
@@ -34,9 +36,24 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 **[FAR-RIO: A Fast and Robust Radar-Inertial Odometry With Isotropic Uncertainty Model and Dual-Observation Update Pipeline](https://ieeexplore.ieee.org/abstract/document/11474877/)**
 
-**Hang Zhen**, Zhi Gao, Ronghe Jin, Xinyu Guo, Feng Lin<br>
+**Hang Zhen**, Zhi Gao<sup title="Corresponding author">†</sup>, Ronghe Jin, Xinyu Guo, Feng Lin<br>
 *IEEE Robotics and Automation Letters (RA-L)*, 11(6): 6975–6982, <time datetime="2026-06">June 2026</time>.<br>
 [Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO)
+
+  </div>
+</div>
+
+<div class="publication-entry">
+  <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11373843" aria-label="Read the EasyColor paper on IEEE Xplore">
+    <img src="images/easycolor-preview.gif" alt="EasyColor point cloud colorization and cross-domain matching demonstration" width="480" height="270" loading="lazy">
+  </a>
+  <div class="publication-entry__details" markdown="1">
+
+**[EasyColor: Reflectivity Assisted Dense Point Cloud RGB Colorizing Without Accurate Time Synchronization and Extrinsic Calibration](https://ieeexplore.ieee.org/abstract/document/11373843)**
+
+Zhiyu Zhou, Zhi Gao<sup title="Corresponding author">†</sup>, Yong Li, **Hang Zhen**<br>
+*IEEE Robotics and Automation Letters (RA-L)*, 11(3): 3716–3723, <time datetime="2026-03">March 2026</time>.<br>
+[Paper](https://ieeexplore.ieee.org/abstract/document/11373843)
 
   </div>
 </div>
