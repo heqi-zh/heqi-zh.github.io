@@ -44,7 +44,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 **Hang Zhen**, Zhi Gao<sup title="Corresponding author">†</sup>, Ronghe Jin, Xinyu Guo, Feng Lin<br>
 *IEEE Robotics and Automation Letters (RA-L)*, 11(6): 6975–6982.<br>
-[Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO) · [Video](assets/videos/far-rio-demo.mp4)
+[Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO)
 
   </div>
 </div>
