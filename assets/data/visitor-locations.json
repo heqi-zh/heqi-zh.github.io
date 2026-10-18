@@ -1,10 +1,64 @@
 {
   "locations": [
     {
+      "country": "CA",
+      "region": "CA-AB",
+      "latitude": 55.282,
+      "longitude": -115,
+      "label": "Alberta, Canada"
+    },
+    {
+      "country": "CN",
+      "latitude": 32.498,
+      "longitude": 106.337,
+      "label": "People's Republic of China"
+    },
+    {
+      "country": "CN",
+      "region": "CN-HB",
+      "latitude": 30.986,
+      "longitude": 112.264,
+      "label": "Hubei, People's Republic of China"
+    },
+    {
+      "country": "GB",
+      "latitude": 54.403,
+      "longitude": -2.116,
+      "label": "United Kingdom"
+    },
+    {
+      "country": "HK",
+      "region": "HK-X12~",
+      "latitude": 22.351,
+      "longitude": 114.14,
+      "label": "Kwai Tsing, Hong Kong"
+    },
+    {
       "country": "JP",
       "latitude": 36.143,
       "longitude": 138.442,
       "label": "Japan"
+    },
+    {
+      "country": "KR",
+      "region": "KR-41",
+      "latitude": 37.256,
+      "longitude": 127.205,
+      "label": "Gyeonggi, South Korea"
+    },
+    {
+      "country": "TR",
+      "region": "TR-34",
+      "latitude": 41.129,
+      "longitude": 28.846,
+      "label": "Istanbul, Turkey"
+    },
+    {
+      "country": "TW",
+      "region": "TW-TPE",
+      "latitude": 25.09,
+      "longitude": 121.559,
+      "label": "Taipei, Taiwan"
     },
     {
       "country": "US",
