@@ -173,18 +173,56 @@
     }
   }
 
-  async function loadVisitors() {
+  function recordVisit() {
+    // The image endpoint records visits; the JSONP endpoints only read them.
+    // Match the production origin so local previews do not pollute statistics.
+    if (location.origin !== new URL(root.dataset.siteUrl).origin) {
+      root.dataset.trackingState = "preview";
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
+      const pixel = new Image(1, 1);
+      const url = new URL("/map.png", "https://mapmyvisitors.com");
+      url.searchParams.set("d", root.dataset.widgetId);
+      url.searchParams.set("cl", "ffffff");
+      url.searchParams.set("_", String(Date.now()));
+      const finish = (state) => {
+        clearTimeout(timer);
+        pixel.onload = pixel.onerror = null;
+        root.dataset.trackingState = state;
+        resolve();
+      };
+      const timer = setTimeout(() => finish("unavailable"), 8000);
+      pixel.onload = () => finish("sent");
+      pixel.onerror = () => finish("unavailable");
+      pixel.alt = "";
+      pixel.hidden = true;
+      pixel.referrerPolicy = "strict-origin-when-cross-origin";
+      root.appendChild(pixel);
+      pixel.src = url.href;
+    });
+  }
+
+  let projectId;
+  let cachedLocations = [];
+  let refreshing = false;
+
+  async function refreshVisitors() {
+    if (refreshing) return;
+    refreshing = true;
     try {
-      // This is the existing service's visit-recording request. Its statistics
-      // remain the source of truth; only presentation is replaced here.
-      const metadata = await requestData("/widget_call_home.js", {
-        d: root.dataset.widgetId,
-        w: 720
-      });
-      const projectId = metadata.match(/["']project_id["']\s*:\s*(\d+)/);
-      if (!projectId) throw new Error("Visitor project could not be found");
+      if (!projectId) {
+        const metadata = await requestData("/widget_call_home.js", {
+          d: root.dataset.widgetId,
+          w: 720
+        });
+        const match = metadata.match(/["']project_id["']\s*:\s*(\d+)/);
+        if (!match) throw new Error("Visitor project could not be found");
+        projectId = match[1];
+        cachedLocations = readLocations(metadata);
+      }
       const payload = await requestData("/ajax/map", {
-        id: projectId[1],
+        id: projectId,
         user: 0,
         url: JSON.stringify(root.dataset.siteUrl),
         initial: true,
@@ -194,18 +232,37 @@
         globalTotal: false,
         mapType: "widget"
       });
-      locations = readLocations(payload);
+      const latest = new Map();
+      for (const point of [...cachedLocations, ...readLocations(payload)]) {
+        latest.set(`${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}`, point);
+      }
+      locations = Array.from(latest.values());
       drawLocations(locations);
       summary.textContent = "";
       summary.hidden = true;
       root.dataset.state = locations.length ? "ready" : "empty";
+      root.dataset.updatedAt = new Date().toISOString();
     } catch (error) {
       summary.textContent = "Visitor data is temporarily unavailable.";
       summary.hidden = false;
       root.dataset.state = "unavailable";
+    } finally {
+      refreshing = false;
     }
   }
 
+  async function startVisitors() {
+    await recordVisit();
+    await refreshVisitors();
+    // Refresh the map without recording an extra page view for an open tab.
+    setInterval(() => {
+      if (!document.hidden) refreshVisitors();
+    }, 30000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) refreshVisitors();
+    });
+  }
+
   loadMap();
-  loadVisitors();
+  startVisitors();
 })();
