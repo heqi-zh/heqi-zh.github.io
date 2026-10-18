@@ -61,7 +61,27 @@ def main():
             with urllib.request.urlopen(request, timeout=30) as response:
                 page = json.load(response)
         except urllib.error.HTTPError as error:
-            sys.exit(f'GoatCounter returned HTTP {error.code}; check the token and read permissions.')
+            detail = ''
+            try:
+                body = json.load(error)
+                detail = str(body.get('error') or body.get('errors') or '')
+            except (ValueError, TypeError):
+                detail = 'Non-JSON error response'
+            detail = detail.replace(token, '[redacted]')[:400]
+            if error.code == 404:
+                # Check token validity without logging account details.
+                probe = urllib.request.Request('https://heqi-zh.goatcounter.com/api/v0/me', headers={
+                    'Authorization': 'Bearer ' + token, 'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                })
+                try:
+                    with urllib.request.urlopen(probe, timeout=30) as result:
+                        print(f'API authentication check: HTTP {result.status}')
+                except urllib.error.HTTPError as probe_error:
+                    print(f'API authentication check: HTTP {probe_error.code}')
+                except urllib.error.URLError:
+                    print('API authentication check: network error')
+            sys.exit(f'GoatCounter returned HTTP {error.code}: {detail}')
         except urllib.error.URLError:
             sys.exit('Could not reach GoatCounter; the previous snapshot was kept.')
         batch = page['stats']
