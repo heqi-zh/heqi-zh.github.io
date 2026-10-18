@@ -5,6 +5,12 @@
       "latitude": 36.143,
       "longitude": 138.442,
       "label": "Japan"
+    },
+    {
+      "country": "US",
+      "latitude": 39.538,
+      "longitude": -97.483,
+      "label": "United States of America"
     }
   ]
 }
