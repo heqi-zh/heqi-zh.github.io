@@ -30,7 +30,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 <div class="publication-entry">
   <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
-    <img src="images/far-rio-first-page.png" alt="First page of the FAR-RIO paper" width="928" height="1200" loading="lazy">
+    <img src="images/far-rio-pipeline.png" alt="FAR-RIO pipeline showing radar-inertial state estimation and mapping" width="1800" height="525" loading="lazy">
   </a>
   <div class="publication-entry__details" markdown="1">
 
