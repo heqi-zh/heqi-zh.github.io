@@ -9,21 +9,85 @@
   const namespace = "http://www.w3.org/2000/svg";
   let requestNumber = 0;
 
-  // Robinson projection; matches scripts/build-visitor-map.py.
-  const robinsonX = [1, .9986, .9954, .99, .9822, .973, .96, .9427, .9216,
-    .8962, .8679, .835, .7986, .7597, .7186, .6732, .6213, .5722, .5322];
-  const robinsonY = [0, .062, .124, .186, .248, .31, .372, .434, .4958,
-    .5571, .6176, .6769, .7346, .7903, .8435, .8936, .9394, .9761, 1];
+  const canvas = root.querySelector(".visitor-map__canvas");
+  const land = root.querySelector(".visitor-map__land");
+  const projection = d3.geoOrthographic()
+    .translate([320, 230]).scale(210).rotate([-110, -25]).clipAngle(90);
+  const path = d3.geoPath(projection);
+  let locations = [];
+  let countries = [];
+  let drag = null;
+  let frame = null;
 
-  function project(latitude, longitude) {
-    const relativeLongitude = ((longitude - 150 + 540) % 360) - 180;
-    const interval = Math.min(Math.abs(latitude), 90) / 5;
-    const index = Math.min(Math.floor(interval), 17);
-    const fraction = interval - index;
-    const x = robinsonX[index] + fraction * (robinsonX[index + 1] - robinsonX[index]);
-    const y = robinsonY[index] + fraction * (robinsonY[index + 1] - robinsonY[index]);
-    return [500 + 180 * .8487 * relativeLongitude * Math.PI / 180 * x,
-      260 - 180 * 1.3523 * Math.sign(latitude) * y];
+  function render() {
+    frame = null;
+    for (const country of countries) {
+      country.element.setAttribute("d", path(country.feature) || "");
+    }
+    drawLocations(locations);
+  }
+
+  function scheduleRender() {
+    if (frame === null) frame = requestAnimationFrame(render);
+  }
+
+  canvas.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary || event.button !== 0) return;
+    drag = {id: event.pointerId, x: event.clientX, y: event.clientY,
+      rotation: projection.rotate()};
+    canvas.setPointerCapture(event.pointerId);
+    canvas.classList.add("is-dragging");
+  });
+  canvas.addEventListener("pointermove", (event) => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const sensitivity = 0.3 * 640 / canvas.getBoundingClientRect().width;
+    projection.rotate([
+      drag.rotation[0] + (event.clientX - drag.x) * sensitivity,
+      Math.max(-85, Math.min(85, drag.rotation[1] - (event.clientY - drag.y) * sensitivity))
+    ]);
+    scheduleRender();
+  });
+  const finishDrag = () => {
+    drag = null;
+    canvas.classList.remove("is-dragging");
+  };
+  canvas.addEventListener("lostpointercapture", finishDrag);
+  canvas.addEventListener("pointercancel", finishDrag);
+  canvas.addEventListener("pointerup", finishDrag);
+  canvas.addEventListener("keydown", (event) => {
+    const movement = {ArrowLeft: [-8, 0], ArrowRight: [8, 0],
+      ArrowUp: [0, -8], ArrowDown: [0, 8]}[event.key];
+    if (!movement) return;
+    event.preventDefault();
+    const rotation = projection.rotate();
+    projection.rotate([rotation[0] + movement[0],
+      Math.max(-85, Math.min(85, rotation[1] + movement[1]))]);
+    scheduleRender();
+  });
+
+  async function loadMap() {
+    try {
+      const response = await fetch("assets/data/visitor-map-countries.json");
+      if (!response.ok) throw new Error("Map could not be loaded");
+      const world = await response.json();
+      countries = world.features.map((feature) => {
+        // D3 uses clockwise exterior rings for polygons smaller than a hemisphere.
+        if (d3.geoArea(feature) > 2 * Math.PI) {
+          const polygons = feature.geometry.type === "Polygon"
+            ? [feature.geometry.coordinates] : feature.geometry.coordinates;
+          for (const polygon of polygons) for (const ring of polygon) ring.reverse();
+        }
+        const element = document.createElementNS(namespace, "path");
+        land.appendChild(element);
+        return {feature, element};
+      });
+      root.dataset.mapState = "ready";
+      render();
+    } catch (error) {
+      summary.textContent = "Map is temporarily unavailable.";
+      summary.hidden = false;
+      root.dataset.mapState = "unavailable";
+    }
   }
 
   function requestData(path, parameters) {
@@ -84,10 +148,13 @@
     return Array.from(locations.values());
   }
 
-  function drawLocations(locations) {
+  function drawLocations(points) {
     markers.replaceChildren();
-    for (const location of locations) {
-      const [x, y] = project(location.latitude, location.longitude);
+    const center = projection.invert([320, 230]);
+    for (const location of points) {
+      const coordinates = [location.longitude, location.latitude];
+      if (d3.geoDistance(center, coordinates) >= Math.PI / 2) continue;
+      const [x, y] = projection(coordinates);
       const group = document.createElementNS(namespace, "g");
       group.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)})`);
 
@@ -125,7 +192,7 @@
         globalTotal: false,
         mapType: "widget"
       });
-      const locations = readLocations(payload);
+      locations = readLocations(payload);
       drawLocations(locations);
       summary.textContent = "";
       summary.hidden = true;
@@ -137,5 +204,6 @@
     }
   }
 
+  loadMap();
   loadVisitors();
 })();

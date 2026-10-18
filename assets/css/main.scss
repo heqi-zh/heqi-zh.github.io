@@ -369,6 +369,16 @@ body {
         display: block;
         width: 100%;
         height: auto;
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+
+        &.is-dragging { cursor: grabbing; }
+        &, &:focus, &:focus-visible {
+            outline: none;
+            box-shadow: none;
+            -webkit-tap-highlight-color: transparent;
+        }
     }
 
     &__land {
