@@ -180,6 +180,7 @@
       root.dataset.trackingState = "preview";
       return Promise.resolve();
     }
+    root.dataset.trackingState = "loading";
     return new Promise((resolve) => {
       const pixel = new Image(1, 1);
       const url = new URL("/map.png", "https://mapmyvisitors.com");
@@ -238,8 +239,9 @@
       }
       locations = Array.from(latest.values());
       drawLocations(locations);
-      summary.textContent = "";
-      summary.hidden = true;
+      const recordingUnavailable = root.dataset.trackingState === "unavailable";
+      summary.textContent = recordingUnavailable ? "Visit recording is temporarily unavailable." : "";
+      summary.hidden = !recordingUnavailable;
       root.dataset.state = locations.length ? "ready" : "empty";
       root.dataset.updatedAt = new Date().toISOString();
     } catch (error) {
