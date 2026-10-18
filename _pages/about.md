@@ -29,12 +29,9 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 <p class="publication-note"><sup>†</sup> Corresponding author.</p>
 
 <div class="publication-entry">
-  <div class="publication-entry__preview publication-entry__preview--video">
-    <video width="960" height="540" autoplay loop muted playsinline controls preload="metadata" poster="images/far-rio-pipeline.png" aria-label="FAR-RIO demonstration, accelerated to three times the source video speed">
-      <source src="assets/videos/far-rio-demo.mp4" type="video/mp4">
-      <a href="assets/videos/far-rio-demo.mp4">Watch the FAR-RIO demo.</a>
-    </video>
-  </div>
+  <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
+    <img src="images/far-rio-preview.gif" alt="FAR-RIO radar-inertial mapping demonstration" width="480" height="270" loading="lazy">
+  </a>
   <div class="publication-entry__details" markdown="1">
 
 <div class="entry-header">
