@@ -48,6 +48,8 @@ $header-font-family: {{ site.data.typography.heading_font_family | default: site
     --background-color: {{ site.data.theme.background_color | default: '#fff8fb' }};
     --intro-background: {{ site.data.theme.intro_background | default: '#ffedf4' }};
     --border-color: {{ site.data.theme.border_color | default: '#efc8d9' }};
+    --map-land-color: {{ site.data.theme.map_land_color | default: '#e8bfd1' }};
+    --map-marker-color: {{ site.data.theme.map_marker_color | default: '#b34472' }};
 }
 
 html, body, .masthead, .greedy-nav {
@@ -354,20 +356,65 @@ body {
 }
 
 .visitor-map {
-    width: 320px;
+    width: 720px;
     max-width: 100%;
-    margin: 2rem auto 1rem;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: #fff;
+    margin: 1rem auto;
 
-    img, iframe, canvas {
-        max-width: 100%;
+    &__summary, &__footer {
+        color: var(--link-color);
+        font-size: 0.85em;
     }
 
-    iframe {
-        border: 0;
+    &__summary {
+        margin: 0 0 0.25rem;
+        text-align: right;
+    }
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__land {
+        fill: var(--map-land-color);
+        stroke: var(--background-color);
+        stroke-width: 0.85;
+        stroke-linejoin: round;
+    }
+
+    &__halo {
+        fill: var(--map-marker-color);
+        opacity: 0.13;
+    }
+
+    &__dot {
+        fill: var(--map-marker-color);
+        stroke: var(--background-color);
+        stroke-width: 2;
+
+        &:hover, &:focus {
+            stroke: var(--map-marker-color);
+            outline: none;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-top: 0.25rem;
+    }
+
+    &__legend-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin-right: 0.45rem;
+        border-radius: 50%;
+        background-color: var(--map-marker-color);
     }
 }
 

@@ -1,0 +1,16 @@
+<div class="visitor-map" id="visitor-map-panel" data-widget-id="Uf4zhGUriHUuB9lv8vAqTGYFLGsV2qVX6x2fL9V__ro" data-site-url="https://heqi-zh.github.io/" data-state="loading">
+  <p class="visitor-map__summary" aria-live="polite">Loading visitor locations…</p>
+  <svg class="visitor-map__canvas" viewBox="0 10 1000 405" role="img" aria-labelledby="visitor-map-title visitor-map-description">
+    <title id="visitor-map-title">Visitors around the world</title>
+    <desc id="visitor-map-description">A world map with approximate locations reported by the visitor statistics service.</desc>
+    <g class="visitor-map__land" fill-rule="evenodd">
+      {% include visitor-map-countries.svg %}
+    </g>
+    <g class="visitor-map__markers"></g>
+  </svg>
+  <div class="visitor-map__footer">
+    <span><span class="visitor-map__legend-dot" aria-hidden="true"></span>Recent visitor locations</span>
+    <a class="visitor-map__statistics" href="https://mapmyvisitors.com/web/1c8y4" target="_blank" rel="noopener noreferrer">View statistics ↗</a>
+  </div>
+</div>
+<script src="assets/js/visitor-map.js" defer></script>
