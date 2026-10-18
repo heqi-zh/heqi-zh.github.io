@@ -20,6 +20,29 @@
   let drag = null;
   let frame = null;
 
+  // Opt-in status view for troubleshooting without browser developer tools.
+  if (new URLSearchParams(location.search).get("visitor-debug") === "1") {
+    const diagnostics = document.createElement("p");
+    diagnostics.className = "visitor-map__diagnostics";
+    diagnostics.textContent = "正在检查访客统计…";
+    root.insertBefore(diagnostics, canvas);
+    setInterval(() => {
+      const tracking = {loading: "正在上报", sent: "请求已完成",
+        unavailable: "请求未成功（网络或拦截问题）", preview: "本地预览，不计数"};
+      const state = {loading: "正在读取", ready: "读取成功", empty: "暂无记录",
+        unavailable: "读取失败"};
+      const updated = root.dataset.updatedAt
+        ? new Date(root.dataset.updatedAt).toLocaleTimeString("zh-CN") : "尚未完成";
+      diagnostics.textContent = [
+        "访客统计诊断",
+        `访问上报：${tracking[root.dataset.trackingState] || "尚未开始"}`,
+        `访客数据：${state[root.dataset.state] || "正在加载"}`,
+        `最近读取：${updated}`,
+        `服务返回：${locations.map(point => point.label).join("；") || "暂无地点数据"}`
+      ].join("\n");
+    }, 1000);
+  }
+
   function render() {
     frame = null;
     ocean.setAttribute("d", path({type: "Sphere"}));

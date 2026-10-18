@@ -362,6 +362,13 @@ body {
     max-width: 100%;
     margin: 1rem auto;
 
+    &__diagnostics {
+        white-space: pre-line;
+        color: var(--link-color);
+        font-size: 0.85em;
+        line-height: 1.6;
+    }
+
     &__summary {
         color: var(--link-color);
         font-size: 0.85em;
