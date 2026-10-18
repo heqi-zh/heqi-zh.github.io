@@ -356,18 +356,13 @@ body {
 }
 
 .visitor-map {
-    width: 720px;
+    width: 640px;
     max-width: 100%;
     margin: 1rem auto;
 
-    &__summary, &__footer {
+    &__summary {
         color: var(--link-color);
         font-size: 0.85em;
-    }
-
-    &__summary {
-        margin: 0 0 0.25rem;
-        text-align: right;
     }
 
     &__canvas {
@@ -383,38 +378,9 @@ body {
         stroke-linejoin: round;
     }
 
-    &__halo {
-        fill: var(--map-marker-color);
-        opacity: 0.13;
-    }
-
     &__dot {
         fill: var(--map-marker-color);
-        stroke: var(--background-color);
-        stroke-width: 2;
-
-        &:hover, &:focus {
-            stroke: var(--map-marker-color);
-            outline: none;
-        }
-    }
-
-    &__footer {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.5rem 1rem;
-        margin-top: 0.25rem;
-    }
-
-    &__legend-dot {
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        margin-right: 0.45rem;
-        border-radius: 50%;
-        background-color: var(--map-marker-color);
+        stroke: none;
     }
 }
 

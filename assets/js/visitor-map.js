@@ -9,9 +9,12 @@
   const namespace = "http://www.w3.org/2000/svg";
   let requestNumber = 0;
 
-  // Same equirectangular projection used by the local country polygons.
+  // Asia/Pacific-centred Mercator; matches scripts/build-visitor-map.py.
   function project(latitude, longitude) {
-    return [500 + longitude * 8 / 3, 245 - latitude * 8 / 3];
+    const relativeLongitude = ((longitude - 150 + 540) % 360) - 180;
+    const latitudeRadians = Math.max(-60, Math.min(80, latitude)) * Math.PI / 180;
+    return [500 + 150 * relativeLongitude * Math.PI / 180,
+      380 - 150 * Math.log(Math.tan(Math.PI / 4 + latitudeRadians / 2))];
   }
 
   function requestData(path, parameters) {
@@ -79,14 +82,9 @@
       const group = document.createElementNS(namespace, "g");
       group.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)})`);
 
-      const halo = document.createElementNS(namespace, "circle");
-      halo.setAttribute("class", "visitor-map__halo");
-      halo.setAttribute("r", "12");
-      group.appendChild(halo);
-
       const dot = document.createElementNS(namespace, "circle");
       dot.setAttribute("class", "visitor-map__dot");
-      dot.setAttribute("r", "5");
+      dot.setAttribute("r", "2");
       dot.setAttribute("tabindex", "0");
       dot.setAttribute("aria-label", location.label);
       const title = document.createElementNS(namespace, "title");
@@ -107,7 +105,6 @@
       });
       const projectId = metadata.match(/["']project_id["']\s*:\s*(\d+)/);
       if (!projectId) throw new Error("Visitor project could not be found");
-      const pageViews = metadata.match(/\.html\(\s*["']([\d,]+)\s+Pageviews["']\s*\)/i);
       const payload = await requestData("/ajax/map", {
         id: projectId[1],
         user: 0,
@@ -121,13 +118,12 @@
       });
       const locations = readLocations(payload);
       drawLocations(locations);
-      const locationText = `${locations.length} ${locations.length === 1 ? "location" : "locations"}`;
-      summary.textContent = pageViews
-        ? `${pageViews[1]} page views · ${locationText}`
-        : locationText;
+      summary.textContent = "";
+      summary.hidden = true;
       root.dataset.state = locations.length ? "ready" : "empty";
     } catch (error) {
       summary.textContent = "Visitor data is temporarily unavailable.";
+      summary.hidden = false;
       root.dataset.state = "unavailable";
     }
   }
