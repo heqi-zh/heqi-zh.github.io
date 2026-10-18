@@ -353,6 +353,24 @@ body {
     }
 }
 
+.visitor-map {
+    width: 320px;
+    max-width: 100%;
+    margin: 2rem auto 1rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fff;
+
+    img, iframe, canvas {
+        max-width: 100%;
+    }
+
+    iframe {
+        border: 0;
+    }
+}
+
 $scroll_offset : 2em;
 h1:before, .anchor:before { 
     content: ''; 
