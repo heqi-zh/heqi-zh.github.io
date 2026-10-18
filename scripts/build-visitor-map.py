@@ -13,7 +13,7 @@ from pathlib import Path
 CENTRE = 150
 SCALE = 150
 WEST, EAST = CENTRE - 180, CENTRE + 180
-SOUTH, NORTH = -60, 80
+SOUTH, NORTH = -60, 85
 
 
 def project(lon, lat):

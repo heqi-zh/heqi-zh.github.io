@@ -12,7 +12,7 @@
   // Asia/Pacific-centred Mercator; matches scripts/build-visitor-map.py.
   function project(latitude, longitude) {
     const relativeLongitude = ((longitude - 150 + 540) % 360) - 180;
-    const latitudeRadians = Math.max(-60, Math.min(80, latitude)) * Math.PI / 180;
+    const latitudeRadians = Math.max(-60, Math.min(85, latitude)) * Math.PI / 180;
     return [500 + 150 * relativeLongitude * Math.PI / 180,
       380 - 150 * Math.log(Math.tan(Math.PI / 4 + latitudeRadians / 2))];
   }
