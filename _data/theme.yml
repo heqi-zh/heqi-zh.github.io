@@ -1,0 +1,6 @@
+# Homepage colors. Keep hex values quoted in YAML.
+heading_color: "#b34472"
+link_color: "#a63765"
+background_color: "#fff8fb"
+intro_background: "#ffedf4"
+border_color: "#efc8d9"

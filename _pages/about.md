@@ -1,58 +1,97 @@
 ---
 permalink: /
 title: ""
-excerpt: ""
+excerpt: "Hang Zhen is a master's student at Wuhan University, with research interests in SLAM, 3D Gaussian Splatting, and agentic robot."
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
+<span class="anchor" id="about-me"></span>
 
-<span class='anchor' id='about-me'></span>
+# About Me
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+<div class="intro-panel" markdown="1">
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+I am **Hang Zhen**, a master's student at the **School of Remote Sensing and Information Engineering, Wuhan University**.
 
+My research interests include **Simultaneous Localization and Mapping (SLAM)**, **3D Gaussian Splatting (3DGS)**, and **Agentic Robot**.
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+I am currently seeking **industry internships** and **PhD opportunities** in **3D/4D Vision** and **Robotics**. Feel free to [contact me](mailto:zhenhangwhu@whu.edu.cn)!
 
-# 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<span class="anchor" id="publications"></span>
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# Publications
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<div class="publication-entry">
+  <a class="publication-entry__preview" href="https://ieeexplore.ieee.org/abstract/document/11474877/" aria-label="Read the FAR-RIO paper on IEEE Xplore">
+    <img src="images/far-rio-first-page.png" alt="First page of the FAR-RIO paper" width="928" height="1200" loading="lazy">
+  </a>
+  <div class="publication-entry__details" markdown="1">
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+**[FAR-RIO: A Fast and Robust Radar-Inertial Odometry With Isotropic Uncertainty Model and Dual-Observation Update Pipeline](https://ieeexplore.ieee.org/abstract/document/11474877/)**
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+**Hang Zhen**, Zhi Gao, Ronghe Jin, Xinyu Guo, Feng Lin<br>
+*IEEE Robotics and Automation Letters (RA-L)*, 11(6): 6975–6982, <time datetime="2026-06">June 2026</time>.<br>
+[Paper](https://ieeexplore.ieee.org/abstract/document/11474877/) · [Project Repository](https://github.com/heqi-zh/FAR-RIO)
+
+  </div>
+</div>
+
+<span class="anchor" id="education"></span>
+
+# Education
+
+<div class="experience-entry">
+  <a class="experience-entry__logo experience-entry__logo--university" href="https://www.whu.edu.cn/" aria-label="Wuhan University official website">
+    <img src="images/wuhan-university-logo.png" alt="Wuhan University emblem" width="1460" height="269" loading="lazy">
+  </a>
+  <div class="experience-entry__details" markdown="1">
+
+**Wuhan University**<br>
+Master's Student<br>
+School of Remote Sensing and Information Engineering
+
+  </div>
+</div>
+
+<div class="experience-entry">
+  <a class="experience-entry__logo experience-entry__logo--university" href="https://www.whu.edu.cn/" aria-label="Wuhan University official website">
+    <img src="images/wuhan-university-logo.png" alt="Wuhan University emblem" width="1460" height="269" loading="lazy">
+  </a>
+  <div class="experience-entry__details" markdown="1">
+
+**Wuhan University**<br>
+Bachelor's Degree<br>
+School of Remote Sensing and Information Engineering
+
+  </div>
+</div>
+
+<span class="anchor" id="experience"></span>
+
+# Experience
+
+<div class="experience-entry">
+  <a class="experience-entry__logo" href="https://www.agibot.com/" aria-label="AGIBOT official website">
+    <img src="images/agibot-logo.png" alt="AGIBOT logo" width="243" height="58" loading="lazy">
+  </a>
+  <div class="experience-entry__details" markdown="1">
+
+**AGIBOT (智元机器人)**<br>
+SLAM Algorithm Engineer Intern<br>
+Nov. 2025 – Feb. 2026
+
+  </div>
+</div>
+
+<span class="anchor" id="contact"></span>
+
+# Contact
+
+Email: [zhenhangwhu@whu.edu.cn](mailto:zhenhangwhu@whu.edu.cn)<br>
+School of Remote Sensing and Information Engineering, Wuhan University<br>
+Wuhan, China

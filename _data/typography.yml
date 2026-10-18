@@ -1,0 +1,14 @@
+# Edit this file to adjust the homepage typography, then refresh the preview.
+# Fonts must be installed on the visitor's device; fallbacks are tried in order.
+# Alternatives: 'Arial, Helvetica, sans-serif' or 'Georgia, "Times New Roman", serif'.
+font_family: '"Linux Biolinum O", "Trebuchet MS", Helvetica, sans-serif'
+heading_font_family: '"Linux Biolinum O", "Trebuchet MS", Helvetica, sans-serif'
+
+# Base size for body text; navigation and sidebar sizes scale with this value.
+font_size: 18px
+
+# Size of the main section headings, relative to body text.
+heading_font_size: 1.3em
+
+# Body line spacing, as a multiple of the font size.
+line_height: 1.4

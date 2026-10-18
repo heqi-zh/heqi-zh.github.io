@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    if: ${{ vars.GOOGLE_SCHOLAR_STATS_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
