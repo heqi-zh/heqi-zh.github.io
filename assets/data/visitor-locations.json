@@ -28,6 +28,12 @@
     },
     {
       "country": "HK",
+      "latitude": 22.449,
+      "longitude": 114.098,
+      "label": "Hong Kong"
+    },
+    {
+      "country": "HK",
       "region": "HK-X12~",
       "latitude": 22.351,
       "longitude": 114.14,
@@ -38,6 +44,13 @@
       "latitude": 36.143,
       "longitude": 138.442,
       "label": "Japan"
+    },
+    {
+      "country": "JP",
+      "region": "JP-28",
+      "latitude": 35.063,
+      "longitude": 134.837,
+      "label": "Hy\u014dgo Prefecture, Japan"
     },
     {
       "country": "KR",
