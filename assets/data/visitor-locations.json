@@ -60,6 +60,12 @@
       "label": "Gyeonggi, South Korea"
     },
     {
+      "country": "RU",
+      "latitude": 58.249,
+      "longitude": 44.686,
+      "label": "Russia"
+    },
+    {
       "country": "TR",
       "region": "TR-34",
       "latitude": 41.129,
