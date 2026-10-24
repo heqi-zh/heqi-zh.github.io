@@ -47,6 +47,13 @@
     },
     {
       "country": "JP",
+      "region": "JP-13",
+      "latitude": 35.658,
+      "longitude": 139.407,
+      "label": "Tokyo, Japan"
+    },
+    {
+      "country": "JP",
       "region": "JP-28",
       "latitude": 35.063,
       "longitude": 134.837,
