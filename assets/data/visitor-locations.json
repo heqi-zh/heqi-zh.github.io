@@ -79,6 +79,12 @@
       "label": "Russia"
     },
     {
+      "country": "SG",
+      "latitude": 1.367,
+      "longitude": 103.817,
+      "label": "Singapore"
+    },
+    {
       "country": "TR",
       "region": "TR-34",
       "latitude": 41.129,
