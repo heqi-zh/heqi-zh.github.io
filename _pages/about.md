@@ -27,7 +27,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 # News
 
 - **[May 2026]** One paper ([FAR-RIO](https://ieeexplore.ieee.org/abstract/document/11474877/)) has been accepted by *IEEE Robotics and Automation Letters (RA-L)*.
-- **[Feb. 2026]** One paper ([EasyColor](https://ieeexplore.ieee.org/abstract/document/11373843)) has been accepted by *IEEE Robotics and Automation Letters (RA-L)*.
+- **[Feb 2026]** One paper ([EasyColor](https://ieeexplore.ieee.org/abstract/document/11373843)) has been accepted by *IEEE Robotics and Automation Letters (RA-L)*.
 
 <span class="anchor" id="publications"></span>
 
@@ -42,7 +42,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
   <div class="publication-entry__details" markdown="1">
 
 <div class="entry-header">
-  <div class="entry-date"><time datetime="2026-06">June 2026</time></div>
+  <div class="entry-date"><time datetime="2026-06">Jun 2026</time></div>
   <h3 class="entry-title"><a href="https://ieeexplore.ieee.org/abstract/document/11474877/">FAR-RIO: A Fast and Robust Radar-Inertial Odometry With Isotropic Uncertainty Model and Dual-Observation Update Pipeline</a></h3>
 </div>
 
@@ -60,7 +60,7 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
   <div class="publication-entry__details" markdown="1">
 
 <div class="entry-header">
-  <div class="entry-date"><time datetime="2026-03">March 2026</time></div>
+  <div class="entry-date"><time datetime="2026-03">Mar 2026</time></div>
   <h3 class="entry-title"><a href="https://ieeexplore.ieee.org/abstract/document/11373843">EasyColor: Reflectivity Assisted Dense Point Cloud RGB Colorizing Without Accurate Time Synchronization and Extrinsic Calibration</a></h3>
 </div>
 
@@ -82,7 +82,7 @@ Zhiyu Zhou, Zhi Gao<sup title="Corresponding author">†</sup>, Yong Li, **Hang 
   <div class="experience-entry__details" markdown="1">
 
 <div class="entry-header">
-  <div class="entry-date"><time datetime="2026-06">June 2026</time> – Present</div>
+  <div class="entry-date"><time datetime="2026-06">Jun 2026</time> – Present</div>
   <h3 class="entry-title">Wuhan University</h3>
 </div>
 
@@ -99,7 +99,7 @@ School of Remote Sensing and Information Engineering
   <div class="experience-entry__details" markdown="1">
 
 <div class="entry-header">
-  <div class="entry-date"><time datetime="2022-08">Aug. 2022</time> – <time datetime="2026-06">June 2026</time></div>
+  <div class="entry-date"><time datetime="2022-08">Aug 2022</time> – <time datetime="2026-06">Jun 2026</time></div>
   <h3 class="entry-title">Wuhan University</h3>
 </div>
 
@@ -120,7 +120,7 @@ School of Remote Sensing and Information Engineering
   <div class="experience-entry__details" markdown="1">
 
 <div class="entry-header">
-  <div class="entry-date"><time datetime="2025-11">Nov. 2025</time> – <time datetime="2026-02">Feb. 2026</time></div>
+  <div class="entry-date"><time datetime="2025-11">Nov 2025</time> – <time datetime="2026-02">Feb 2026</time></div>
   <h3 class="entry-title">AGIBOT (智元机器人)</h3>
 </div>
 
