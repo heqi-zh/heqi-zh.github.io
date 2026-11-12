@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: ""
-excerpt: "Hang Zhen is a master's student at Wuhan University, with research interests in SLAM, 3D Gaussian Splatting, and agentic robot."
+excerpt: "Hang Zhen is a master's student at Wuhan University, with research interests in 3D Vision and agentic robot."
 author_profile: true
 redirect_from:
   - /about/
@@ -16,7 +16,7 @@ redirect_from:
 
 I am **Hang Zhen**, a master's student at the **School of Remote Sensing and Information Engineering, Wuhan University**.
 
-My research interests include **Simultaneous Localization and Mapping (SLAM)**, **3D Gaussian Splatting (3DGS)**, and **Agentic Robot**.
+My research interests include **3D Vision** and **Agentic Robot**.
 
 I am currently seeking **industry internships** and **PhD opportunities** in **3D/4D Vision** and **Robotics**. Feel free to [contact me](mailto:zhenhangwhu@whu.edu.cn)!
 
