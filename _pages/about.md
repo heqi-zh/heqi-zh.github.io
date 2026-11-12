@@ -22,6 +22,13 @@ I am currently seeking **industry internships** and **PhD opportunities** in **3
 
 </div>
 
+<span class="anchor" id="news"></span>
+
+# News
+
+- **[May 2026]** One paper ([FAR-RIO](https://ieeexplore.ieee.org/abstract/document/11474877/)) has been accepted by *IEEE Robotics and Automation Letters (RA-L)*.
+- **[Feb. 2026]** One paper ([EasyColor](https://ieeexplore.ieee.org/abstract/document/11373843)) has been accepted by *IEEE Robotics and Automation Letters (RA-L)*.
+
 <span class="anchor" id="publications"></span>
 
 # Publications
@@ -74,7 +81,11 @@ Zhiyu Zhou, Zhi Gao<sup title="Corresponding author">†</sup>, Yong Li, **Hang 
   </a>
   <div class="experience-entry__details" markdown="1">
 
-**Wuhan University**<br>
+<div class="entry-header">
+  <div class="entry-date"><time datetime="2026-06">June 2026</time> – Present</div>
+  <h3 class="entry-title">Wuhan University</h3>
+</div>
+
 Master's Student<br>
 School of Remote Sensing and Information Engineering
 
@@ -87,7 +98,11 @@ School of Remote Sensing and Information Engineering
   </a>
   <div class="experience-entry__details" markdown="1">
 
-**Wuhan University**<br>
+<div class="entry-header">
+  <div class="entry-date"><time datetime="2022-08">Aug. 2022</time> – <time datetime="2026-06">June 2026</time></div>
+  <h3 class="entry-title">Wuhan University</h3>
+</div>
+
 Bachelor's Degree<br>
 School of Remote Sensing and Information Engineering
 
