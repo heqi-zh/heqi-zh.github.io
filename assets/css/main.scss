@@ -249,6 +249,19 @@ body {
         }
     }
 
+    // The horizontal MARS mark is centered in a square transparent image.
+    &__logo--mars {
+        justify-content: center;
+        height: 44px;
+        overflow: hidden;
+
+        img {
+            width: 160%;
+            max-width: none;
+            flex-shrink: 0;
+        }
+    }
+
     &__details {
         min-width: 0;
 
