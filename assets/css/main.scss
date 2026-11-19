@@ -218,6 +218,8 @@ body {
 }
 
 .experience-entry {
+    $internship-logo-width: 180px;
+
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr);
     align-items: center;
@@ -225,7 +227,12 @@ body {
     margin: 1rem 0;
 
     &--internship {
-        grid-template-columns: 180px minmax(0, 1fr);
+        grid-template-columns: $internship-logo-width minmax(0, 1fr);
+
+        .experience-entry__logo {
+            justify-content: center;
+            width: $internship-logo-width;
+        }
     }
 
     &__logo {
@@ -237,6 +244,7 @@ body {
         img {
             display: block;
             width: 100%;
+            max-width: 150px;
             height: auto;
         }
     }
@@ -255,13 +263,11 @@ body {
 
     // The horizontal MARS mark is centered in a square transparent image.
     &__logo--mars {
-        justify-content: center;
-        width: 180px;
         height: 48px;
         overflow: hidden;
 
         img {
-            width: 165%;
+            width: 148.5%;
             max-width: none;
             flex-shrink: 0;
         }
