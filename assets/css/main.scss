@@ -224,6 +224,10 @@ body {
     gap: 1.5rem;
     margin: 1rem 0;
 
+    &--internship {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
     &__logo {
         display: flex;
         align-items: center;
@@ -252,11 +256,12 @@ body {
     // The horizontal MARS mark is centered in a square transparent image.
     &__logo--mars {
         justify-content: center;
-        height: 44px;
+        width: 180px;
+        height: 48px;
         overflow: hidden;
 
         img {
-            width: 160%;
+            width: 165%;
             max-width: none;
             flex-shrink: 0;
         }

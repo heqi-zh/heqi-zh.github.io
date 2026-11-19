@@ -113,7 +113,7 @@ School of Remote Sensing and Information Engineering
 
 # Experience
 
-<div class="experience-entry">
+<div class="experience-entry experience-entry--internship">
   <div class="experience-entry__logo experience-entry__logo--mars">
     <img src="images/mars-logo.png" alt="MARS (火星登陆) logo" width="591" height="591" loading="lazy">
   </div>
@@ -124,13 +124,12 @@ School of Remote Sensing and Information Engineering
   <h3 class="entry-title">MARS (火星登陆)</h3>
 </div>
 
-Intern · Wuhan, China<br>
-3D Gaussian Splatting (3DGS) and Agentic Robotics
+Embodied Agent Algorithm Engineer Intern
 
   </div>
 </div>
 
-<div class="experience-entry">
+<div class="experience-entry experience-entry--internship">
   <a class="experience-entry__logo" href="https://www.agibot.com/" aria-label="AGIBOT official website">
     <img src="images/agibot-logo.png" alt="AGIBOT logo" width="243" height="58" loading="lazy">
   </a>
