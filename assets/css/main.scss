@@ -261,13 +261,14 @@ body {
         }
     }
 
-    // The horizontal MARS mark is centered in a square transparent image.
+    // Match the AGIBOT mark's visible width and offset the uneven transparent margins.
     &__logo--mars {
         height: 48px;
         overflow: hidden;
 
         img {
-            width: 148.5%;
+            width: 250px;
+            margin-inline-start: 7px;
             max-width: none;
             flex-shrink: 0;
         }
