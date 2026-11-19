@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: ""
-excerpt: "Hang Zhen (甄航) is a master's student at Wuhan University, with research interests in 3D/4D Vision and Embodied and Spatial Agents."
+excerpt: "Hang Zhen (甄航) is a master's student at Wuhan University. Research interests — 3D/4D Vision, Embodied/Spatial Agent."
 author_profile: true
 redirect_from:
   - /about/
@@ -16,7 +16,7 @@ redirect_from:
 
 I am **Hang Zhen (甄航)**, a master's student at the **School of Remote Sensing and Information Engineering, Wuhan University**.
 
-My research interests include **3D/4D Vision** and **Embodied and Spatial Agents**.
+Research interests — **3D/4D Vision**, **Embodied/Spatial Agent**.
 
 I am currently seeking **industry internships** and **PhD opportunities** in **3D/4D Vision** and **Robotics**. Feel free to [contact me](mailto:zhenhangwhu@whu.edu.cn)!
 
