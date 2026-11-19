@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Hang Zhen"
+title                    : "Hang Zhen (甄航)"
 description              : "School of Remote Sensing and Information Engineering, Wuhan University"
 repository               : "heqi-zh/heqi-zh.github.io"
 url                      : "https://heqi-zh.github.io"
@@ -24,7 +24,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Hang Zhen"
+  name             : "Hang Zhen (甄航)"
   avatar           : "images/hang-zhen.jpg"
   bio              : "Master's Student"
   location         : "Wuhan, China"

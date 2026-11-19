@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: ""
-excerpt: "Hang Zhen is a master's student at Wuhan University, with research interests in 3D Vision and agentic robot."
+excerpt: "Hang Zhen (甄航) is a master's student at Wuhan University, with research interests in 3D/4D Vision and Embodied and Spatial Agents."
 author_profile: true
 redirect_from:
   - /about/
@@ -14,9 +14,9 @@ redirect_from:
 
 <div class="intro-panel" markdown="1">
 
-I am **Hang Zhen**, a master's student at the **School of Remote Sensing and Information Engineering, Wuhan University**.
+I am **Hang Zhen (甄航)**, a master's student at the **School of Remote Sensing and Information Engineering, Wuhan University**.
 
-My research interests include **3D Vision** and **Agentic Robot**.
+My research interests include **3D/4D Vision** and **Embodied and Spatial Agents**.
 
 I am currently seeking **industry internships** and **PhD opportunities** in **3D/4D Vision** and **Robotics**. Feel free to [contact me](mailto:zhenhangwhu@whu.edu.cn)!
 
@@ -115,13 +115,13 @@ School of Remote Sensing and Information Engineering
 
 <div class="experience-entry experience-entry--internship">
   <div class="experience-entry__logo experience-entry__logo--mars">
-    <img src="images/mars-logo.png" alt="MARS (火星登陆) logo" width="591" height="591" loading="lazy">
+    <img src="images/mars-logo.png" alt="MARS Landing (火星登陆) logo" width="591" height="591" loading="lazy">
   </div>
   <div class="experience-entry__details" markdown="1">
 
 <div class="entry-header">
   <div class="entry-date"><time datetime="2026-05">May 2026</time> – <time datetime="2026-12">Dec 2026</time></div>
-  <h3 class="entry-title">MARS (火星登陆)</h3>
+  <h3 class="entry-title">MARS Landing (火星登陆)</h3>
 </div>
 
 Embodied Agent Algorithm Engineer Intern
